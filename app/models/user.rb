@@ -15,6 +15,10 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}".strip
   end
 
+  def address
+    "#{city} #{state} #{country}".strip
+  end
+
   def self.ransackable_attributes(auth_object = nil)
     ["city", "country"]
   end

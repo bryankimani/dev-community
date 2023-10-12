@@ -29,7 +29,7 @@
                             <h5 style="min-height: 50px" ><%= user.full_name %></h5>
                             <p class="lead" style="min-height: 60px" ><%= user.profile_title %></p>
                             <small class="text-primary"><%= user.country %></small><br />
-                            <%= link_to "View Profile", "javascript.void(0)", class: "btn btn-primary mt-3" %>
+                            <%= link_to "View Profile", member_path(user) , class: "btn btn-primary mt-3" %>
                         </div>
                     </div>
                 </div>
