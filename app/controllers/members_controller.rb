@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  before_action :authenticate_user!, only: %[:edit_description, :update_description]
+  before_action :authenticate_user!, only: %[:edit_description, :update_description, :edit_personal_details, :update_personal_details]
 
   def show
     @user = User.find(params[:id])
@@ -16,5 +16,24 @@ class MembersController < ApplicationController
         }
       end
     end
+  end
+
+  def edit_personal_details
+  end
+
+  def update_personal_details
+    respond_to do |format|
+      if current_user.update(user_personal_details_params)
+        format.turbo_stream {
+          render turbo_stream: turbo_stream.replace('member-personal-details', partial: 'members/member_personal_details', locals: { user: current_user  })
+        }
+      end
+    end
+  end
+
+  private
+
+  def user_personal_details_params
+    params.require(:user).permit(:first_name, :last_name, :city, :state, :country, :zipcode, :profile_title)
   end
 end

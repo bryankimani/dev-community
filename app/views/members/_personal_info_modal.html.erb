@@ -1,0 +1,63 @@
+<%= turbo_frame_tag :remote_modal, target: :_top do %>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1"
+        role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-controller="bootstrap-modal">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Edit your personal details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-action="click->bootstrap-modal#submitEnd">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <%= form_with model: current_user, url: update_personal_details_members_path, method: :patch do |form| %>
+            <div class="modal-body">
+
+
+                <div class="form-group mb-3">
+                    <label class="form-label">First name</label>
+                    <%= form.text_field :first_name, value: current_user.first_name, class: "form-control" %>
+                </div>
+
+                <div class="form-group  mb-3">
+                    <label class="form-label">Last name</label>
+                    <%= form.text_field :last_name, value: current_user.last_name, class: "form-control" %>
+                </div>
+
+                    <div class="form-group  mb-3">
+                    <label class="form-label">Profile title</label>
+                    <%= form.text_field :profile_title, value: current_user.profile_title, class: "form-control" %>
+                </div>
+
+                <div class="form-group  mb-3">
+                    <label class="form-label">City</label>
+                    <%= form.text_field :city, value: current_user.city, class: "form-control" %>
+                </div>
+
+                <div class="form-group  mb-3">
+                    <label class="form-label">State</label>
+                    <%= form.text_field :state, value: current_user.state, class: "form-control" %>
+                </div>
+
+                <div class="form-group  mb-3">
+                    <label class="form-label">Country</label>
+                    <%= form.text_field :country, value: current_user.country, class: "form-control" %>
+                </div>
+
+                <div class="form-group  mb-3">
+                    <label class="form-label">Zipcode</label>
+                    <%= form.text_field :zipcode, value: current_user.zipcode, class: "form-control" %>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-action="click->bootstrap-modal#submitEnd">Close</button>
+                <%= form.submit 'Save Changes', class: 'btn btn-primary', data: { action: 'click->bootstrap-modal#submitEnd'} %>
+            </div>
+        <% end %>
+        </div>
+    </div>
+    </div>
+<% end %>
