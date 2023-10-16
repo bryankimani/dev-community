@@ -6,6 +6,7 @@ export default class extends Controller {
     this.modal = new bootstrap.Modal(this.element, {
       keyboard: false,
     })
+
     this.modal.show()
   }
 
