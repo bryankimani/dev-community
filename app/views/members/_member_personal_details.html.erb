@@ -8,7 +8,8 @@
                 <% if user_signed_in? && user == current_user %>
                     <div class="col-lg-6">
                         <div class="d-flex justify-content-end">
-                            <%= link_to edit_personal_details_members_path, data: { controller: "edit-user-personal-details" } do %>
+                            <%= link_to edit_personal_details_members_path,
+                                data: { controller: "bootstrap-modal-form" } do %>
                                 <i class="bi bi-pencil-fill"></i>
                             <% end %>
                         </div>

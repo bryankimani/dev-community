@@ -1,0 +1,18 @@
+<%= turbo_frame_tag :remote_modal, target: :_top do %>
+    <!-- Modal -->
+    <div class="modal fade" id="bootstrapTurboModalCenter" tabindex="-1"
+        role="dialog" aria-labelledby="bootstrapTurboModalCenterTitle" aria-hidden="true" data-controller="bootstrap-modal">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bootstrapTurboModalLongTitle"><%= modal_title %></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-action="click->bootstrap-modal#submitEnd">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <%= render form_partial %>
+            </div>
+        </div>
+    </div>
+<% end %>
