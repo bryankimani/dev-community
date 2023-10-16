@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
 
+  has_many :work_experiences, dependent: :destroy
+
   PROFILE_TITLE = [
     'Product Manager',
     'Senior Developer',
