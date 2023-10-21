@@ -13,4 +13,6 @@ Rails.application.routes.draw do
       patch "update_personal_details", to: "members#update_personal_details", as: :update_personal_details
     end
   end
+
+  resources :work_experiences
 end
